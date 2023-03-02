@@ -4,7 +4,7 @@ This program converts a spice like netlist into a state-space representation of 
 
 More details and examples can be found below:
 
-#Files organiztion
+# Files
 
 test: folder containing all the tests for the code. Type ./test/run_all.sh to run them. 
 
