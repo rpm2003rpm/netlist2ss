@@ -1,0 +1,7 @@
+VIN  VIN  GND  VIN
+EIN  N1   GND  VIN GND Duty
+FIN  VIN  GND  N1  N2  Duty
+RESR VOUT N3   Resr
+COUT N3   GND  Cout
+LIN  N2   VOUT L
+ROUT VOUT GND  Rload
