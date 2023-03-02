@@ -1,6 +1,6 @@
 # Netlist to space state
 
-This program converts a spice like netlist into a state-space representation of the system. You can choose the input variables, linearize unlinear systems, calculate the dc operating point, and choose the output variables. The states, however, are column vector taken as the voltage in the capacitors and the current in the inductos respecting the same order they are included in the netlist from top to bottom.
+This program converts a spice like netlist into a state-space representation of the system. You can choose the input variables, linearize unlinear systems, calculate the dc operating point, and choose the output variables. The states are column vector taken as the voltage in the capacitors and the current in the inductos respecting the same order they are included in the netlist from top to bottom.
 
 More details and examples can be found below:
 
