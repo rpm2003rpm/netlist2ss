@@ -18,7 +18,7 @@ sisotf.py: calls the netlist2ss in order to compute the transfer function for a 
 
 1. Open python3 in a terminal
 
-2. Calculate the transfer function of 'cap_filt.sp' circuit by typing the following lines in the python interpreter
+2. Calculate the space state matrices of 'cap_filt.sp' circuit by typing the following lines in the python interpreter
 
 ```
     from netlist2ss import netlist2ss 
