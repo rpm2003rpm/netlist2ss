@@ -29,13 +29,14 @@
 from setuptools import setup, find_packages
 
 setup(
+    entry_points = {'console_scripts' : ['sisotf=netlist2ss.sisotf:cli'] },
     name='netlist2ss',
     version='1.1',
     packages=find_packages(),
     install_requires=[
-        'numpy',
-        'regex',
-        'sympy'
+        'numpy>=1.19.5',
+        'regex>=2023.6.3',
+        'sympy>=1.7.1'
     ]
 )
 

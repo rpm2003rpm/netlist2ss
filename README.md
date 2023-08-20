@@ -10,9 +10,9 @@ test: folder containing all the tests for the code. Type ./test/run_all.sh to ru
 
 examples: sample netlists
 
-netlist2ss.py: calculate the space space-state representation
-
-sisotf.py: calls the netlist2ss in order to compute the transfer function for a single input and single output system  
+/netlist2ss/netlist2ss.py: calculate the space space-state representation
+/netlist2ss/sisotf.py: instantiate the netlist2ss package in order to compute the transfer function for a single input and single output system (the sisotf command is added when you install this package using the setup-tools)  
+/netlist2ss/__init__.py: init file  
 
 # Simple Example
 
