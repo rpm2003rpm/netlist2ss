@@ -30,7 +30,7 @@ examples: sample netlists
     A,B,C,D,OP = netlist2ss(netlist,['IN'],['VnOUT'])
 ```
     * ['IN'] is the list of the input variables. Input variables can be any variable used as value of a device in the netlist.
-    * ['VnOUT'] list of output measurements. Use Vn<node> to mesaure the voltage in a specific node, Vd<dev> to measure de voltage across a device, and Id<dev> for the current across a device.
+    * ['VnOUT'] list of output measurements. Use Vn<node> to mesaure the voltage in a specific node, Vd<dev> to measure de voltage across a device, and Id<dev> for the current across a device. Vc<dev> and Ic<dev> returns the voltage and the current between the control pins of controlled sources, respectively.
 
 3. The transfer function can be calculated by running:
 
@@ -64,3 +64,10 @@ The device type is identified by its first letter. You can find a list of the su
 # Limitations
     * capacitors can't be connected in parallel with voltage sources or in parallel with other capacitors.
     * inductors can't be connected in series with current sources or in series with other inductors.
+
+# Install
+If you with to install the package in your computer, type:
+
+```
+    pip3 install netlist2ss
+```

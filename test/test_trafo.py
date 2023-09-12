@@ -77,14 +77,14 @@ if __name__ == "__main__":
     C_ref = si.Matrix(3, 0, [])
     C_ref = si.simplify(C_ref)
 
-    D_ref = si.Matrix([[1/(R2/(Beta*Beta) + R1)], \
+    D_ref = si.Matrix([[0], \
                        [(1-R1/(R2/(Beta*Beta) + R1))*Beta], \
                        [1/(R2/(Beta*Beta) + R1)/Beta]])
     D_ref = si.simplify(D_ref)
 
-    DC_OP_ref = si.Matrix([[V1/(R2/(Beta*Beta) + R1)], \
-                          [(1-R1/(R2/(Beta*Beta) + R1))*Beta*V1], \
-                          [V1/(R2/(Beta*Beta) + R1)/Beta]])
+    DC_OP_ref = si.Matrix([[0], \
+                           [(1-R1/(R2/(Beta*Beta) + R1))*Beta*V1], \
+                           [V1/(R2/(Beta*Beta) + R1)/Beta]])
 
     DC_OP_ref = si.simplify(DC_OP_ref)
     # Run test  

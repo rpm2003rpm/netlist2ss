@@ -1,0 +1,23 @@
+[build-system]
+requires=["setuptools >= 58.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netlist2ss"
+version = "0.0.1"
+authors = [{name="Rodrigo Pedroso Mendes", email="roedroso@gmail.com"}]
+description = "A package to convert spice netlist into space state representation"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["numpy>=1.25.2", "regex>=2023.6.3", "sympy>=1.11.1"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+netlist2ss-sisotf = "netlist2ss.sisotf:cli"
+
+[project.urls]
+"Homepage" = "https://github.com/rpm2003rpm/netlist2ss"
