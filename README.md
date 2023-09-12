@@ -6,13 +6,13 @@ More details and examples can be found below:
 
 # Files
 
-test: folder containing all the tests for the code. Type ./test/run_all.sh to run them. 
+test: folder containing all the tests for the code. Type python3 test/test.py to run them. 
 
 examples: sample netlists
 
 /netlist2ss/netlist2ss.py: calculate the space space-state representation
 
-/netlist2ss/sisotf.py: instantiate the netlist2ss package in order to compute the transfer function for a single input and single output system (the sisotf command is added when you install this package using the setup-tools)  
+/netlist2ss/sisotf.py: instantiate the netlist2ss package in order to compute the transfer function for a single input and single output system (the netlist2ss-sisotf command is added when you install this package using the setup-tools)  
 
 /netlist2ss/\_\_init\_\_.py: init file  
 
@@ -39,6 +39,28 @@ examples: sample netlists
     s = si.symbols('s')
     H = si.simplify(C*((s*(si.eye(A.shape[0]))-A).inv())*B + D)[0,0]
 ```
+
+# Second Example - Non linear system
+
+netlist2ss will always calculate the A, B, C, and D matrices as the jacobian matrix of the state and output equations a function of the states and inputs. As a results, netlist2ss will return the small signal variation about the operating point when the equations are non-linear.
+
+You can try the following:
+```
+    from netlist2ss import netlist2ss 
+    import sympy as si
+    netlist = ("V1 N1 GND ln(IN)\n"
+               "R1 N1 N2  R1\n"
+               "C1 N2 GND C1\n")
+    A,B,C,D,OP = netlist2ss(netlist,['IN'],['VnN2']) 
+    s = si.symbols('s')
+    H = si.simplify(C*((s*(si.eye(A.shape[0]))-A).inv())*B + D)[0,0]
+    print(OP)
+    print(H)
+```
+
+The operating point will be ln(IN) and the transfer function will be 1/(IN*(C1*R1*s + 1)), which means that the transfer funciton depends on the DC value of the input.
+
+
 # Netlist
 
 As shown in the example, the netlist is composed of a list of devices. The interconections between the devices (the nets) can written as any valid spice net name. The keywords gnd (in any combination of up and lower case letters) and 0 means the reference potential node and they must be present at least once.  
