@@ -1,9 +1,0 @@
-VIN N1  GND VIN
-R1  N1  N2  R1
-C1  N2  GND C1
-
-R2  N1  N3  R2
-C2  GND N3  C2
-
-C3  N1  N4  C3
-R3  N4  GND R3

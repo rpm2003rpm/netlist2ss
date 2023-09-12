@@ -1,5 +1,0 @@
-R1 GND N1  R1
-R2 N2  GND R2
-R3 N1  N3  R3
-I1 N2  N3  I1
-
