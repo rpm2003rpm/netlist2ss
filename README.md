@@ -58,7 +58,7 @@ You can try the following:
     print(H)
 ```
 
-The operating point will be ln(IN) and the transfer function will be 1/(IN*(C1*R1*s + 1)), which means that the transfer funciton depends on the DC value of the input.
+The operating point will be ln(IN) and the transfer function will be 1/( IN (C1R1s + 1) ), which means that the transfer funciton depends on the DC value of the input.
 
 
 # Netlist
