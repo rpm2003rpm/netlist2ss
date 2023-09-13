@@ -42,7 +42,7 @@ examples: sample netlists
 
 # Second Example - Non linear system
 
-netlist2ss will always calculate the A, B, C, and D matrices as the jacobian matrix of the state and output equations a function of the states and inputs. As a results, netlist2ss will return the small signal variation about the operating point when the equations are non-linear.
+netlist2ss will always calculate the A, B, C, and D matrices as the jacobian matrix of the state and output equations with relation to the states and inputs. As a results, netlist2ss will return the small signal variation about the operating point when the equations are non-linear.
 
 You can try the following:
 ```
