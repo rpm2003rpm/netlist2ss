@@ -141,13 +141,13 @@ def netlistParser(netlist):
     pattern2tDevices  = r"^[ \t]*([VvIiLlRrCc][A-Za-z0-9_]*)[ \t]+" + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
-                        r"([A-Za-z0-9+*/() -]+)[ \t]*(;.*)?$"
+                        r"([A-Za-z0-9+*/()\- \.]+)[ \t]*(;.*)?$"
     pattern4tDevices  = r"^[ \t]*([EeHhGgFfTt][A-Za-z0-9_]*)[ \t]+"   + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
                         r"([A-Za-z0-9_]+)[ \t]+" + \
-                        r"([A-Za-z0-9+*/() -]+)[ \t]*(;.*)?$"
+                        r"([A-Za-z0-9+*/()\- \.]+)[ \t]*(;.*)?$"
     #Split the netlist in lines and fillout the component dictionary
     compDict = {}
     compList = []
@@ -768,20 +768,34 @@ def calcABCD (F, X, G, U):
 # (A, B, C, D, OP) = netlist2ss("e1 n1 gnd in\nr1 n1 c1 r1\n 
 #                                c1 c1 gnd c1", ["in"], ["Vnc1"])
 #-------------------------------------------------------------------------------
-def netlist2ss(netlist, inputs, outputs):
+def netlist2ss(netlist, inputs, outputs, verbose = False):
     #Parse netlist
+    if verbose == True:
+        print("Parsing Netlist...")
     (compDict, compList) = netlistParser(netlist)
     #Calculate the number of nodes and the size of the J matrix
+    if verbose == True:
+        print("Building nodal analysys matrices...")
     (nJ, nNodes, nodesDict) = calcNodesnJ(compList)
     #Build the nodal analysis matrices
     (A, Z) = nodalAnalysisMatrices(compList, nJ, nNodes, nodesDict)
     #Solve the linear system
+    if verbose == True:
+        print("Solve linear system...")
     (V, J) = solveSystem(A, Z, nNodes)
     #Select which one of the nodal analysis results are state equations
+    if verbose == True:
+        print("Isolating states...")
     (X, F) = stateEquations (compList, nodesDict, V, J)
     #Select which one of the nodal analysis results are output equations 
+    if verbose == True:
+        print("Isolating outputs...")
     G = parseOutputs (compDict, nodesDict, V, J, outputs)
     #Input variables
+    if verbose == True:
+        print("Isolating inputs...")
     U = parseInputs (inputs)
     #Return the space state representation of the system
+    if verbose == True:
+        print("Calculating A,B,C and D matrices...")
     return calcABCD (F, X, G, U)

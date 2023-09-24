@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "netlist2ss"
-version = "0.2"
+version = "0.2.1"
 authors = [{name="Rodrigo Pedroso Mendes", email="roedroso@gmail.com"}]
 description = "A package to convert spice netlist into space state representation"
 readme = "README.md"
